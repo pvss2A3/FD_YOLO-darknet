@@ -1,0 +1,5 @@
+classes = 2
+train  = /content/gdrive/MyDrive/FD_dataset/train.txt
+valid  = /content/gdrive/MyDrive/FD_dataset/test.txt
+names = /content/gdrive/MyDrive/FD_dataset/face_mask.names
+backup = /content/gdrive/MyDrive/FD_dataset/backup1
