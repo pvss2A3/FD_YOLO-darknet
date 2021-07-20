@@ -15,14 +15,14 @@ The tabel below shows an overview of python lybraries we are using for these tas
 
 | Distribution Name | Version   |       Description          |
 | -------------     |:---------:| --------------------------:|
-| Python            | 3.7       | >Python is an interpreted, object-oriented, high-level programming language used in many software development practices. |
-| Pandas            | 1.1.2     | >Pandas is a software library, developed in python programming to handle operations on tabular data. It includes operations such as data manipulations, transformations and numeric analysis. |
-| Numpy             | 1.19      | >Numpy is a python library that supports different operations to perform on multi dimensional arrays and matrices. |
-| Opencv            | 4.5.2.54  | >OpenCV-Python is a library of Python bindings designed to solve computer vision problems. |
-| Tensorflow        | 2.3.0     | >Tensorflow is an open source deep learning platform designed by google to support deep learning techniques like CNN, RNN, etc. |
-| Keras             | 2.4       | >Keras is an open source library that acts as an API for developing deep learning applications and it runs on top of tensorflow. |
-| Matplotlib        | 3.3.1     | >Matplotlib is a plotting library written in python framework. This library is helpful in creating static, animated and interactive visualizations in python. |
-| Cuda              | 11.2      | >CUDA is a parallel computing platform and application programming interface model created by Nvidia. It allows software developers and software engineers to use a CUDA-enabled graphics processing unit for general purpose processing – an approach termed GPGPU. |
+| Python            | 3.7       | Python is an interpreted, object-oriented, high-level programming language used in many software development practices. |
+| Pandas            | 1.1.2     | Pandas is a software library, developed in python programming to handle operations on tabular data. It includes operations such as data manipulations, transformations and numeric analysis. |
+| Numpy             | 1.19      | Numpy is a python library that supports different operations to perform on multi dimensional arrays and matrices. |
+| Opencv            | 4.5.2.54  | OpenCV-Python is a library of Python bindings designed to solve computer vision problems. |
+| Tensorflow        | 2.3.0     | Tensorflow is an open source deep learning platform designed by google to support deep learning techniques like CNN, RNN, etc. |
+| Keras             | 2.4       | Keras is an open source library that acts as an API for developing deep learning applications and it runs on top of tensorflow. |
+| Matplotlib        | 3.3.1     | Matplotlib is a plotting library written in python framework. This library is helpful in creating static, animated and interactive visualizations in python. |
+| Cuda              | 11.2      | CUDA is a parallel computing platform and application programming interface model created by Nvidia. It allows software developers and software engineers to use a CUDA-enabled graphics processing unit for general purpose processing – an approach termed GPGPU. |
 
 ### Dataset:
 
