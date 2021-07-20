@@ -1,1 +1,1 @@
-# FD_YOLO-darknet
+**Object detection** is a computer technology more related to Computer Vision and Image Processing that deals with detecting instances of semantic objects of a certain class, such as humans, buildings, or cars, in digital images and videos [1]. Well-researched domains of object detection include face detection, car detection and pedestrian detection.
