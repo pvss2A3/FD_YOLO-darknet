@@ -56,7 +56,7 @@ You can also check the conversion was correct or not with [bb script](https://gi
 
 ### Training the dataset:
 
-The next step is to train on our dataset. For this we need to clone the <u>darknet repo<\u> by running:
+The next step is to train on our dataset. For this we need to clone the <u>darknet repo</u> by running:
   
   `!git clone https://github.com/AlexeyAB/darknet`
 
