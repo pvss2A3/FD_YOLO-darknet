@@ -56,12 +56,18 @@ You can also check the conversion was correct or not with [bb script](https://gi
 
 ### Training the dataset:
 
-The next step is to train on our dataset. For this we need to clone the <u>darknet repo</u> by running:
+The next step is to train on our dataset. For this we need to clone the <ins> darknet repo </ins> by running:
   
   `!git clone https://github.com/AlexeyAB/darknet`
 
+and after that, we need to download the weights of the pre-trained model in order to apply transfer learning and not train the model from scratch. Here we are using `!wget https://pjreddie.com/media/files/darknet53.conv.74` for YOLOv3 (you can also use `!wget https://pjreddie.com/media/files/yolov3.weights` but *darknet53.conv.74* weights got more efficient results compared to *yolov3.weights*) and `!wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.conv.137` for YOLOv4. 
 
+**darknet53.conv.74** is the backbone of the YOLOv3 network which is originally trained for classification on the ImageNet dataset and plays the role of the extractor. So, 107 layers are loaded in our YOLOv3 model case and 162 layers in our YOLOv4 case.
 
+Before training our model, we need to create some files such as *obj.names, obj.data, obj.cfg, train.txt* and *test.txt*. Below is some description about what should these files should contain. 
+
+1. **obj.names**: create a file obj.names which contains the classes of the problem. In our case, the original Kaggle dataset has 3 categories: with_mask, without_mask, and mask_weared_incorrect. To simplify a little bit the task, I considered the two latter categories into one. Thus, for our task, we have two categories: mask and no_mask based on whether someone wears his/her mask appropriately. For both the models, I have used same [face_mask.names](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv3/face_mask.names) file.
+2. **obj.data**: create a obj.data file that includes relevant information to our problem and it is going to be used from the program. For YOLOv3, we have created [face_mask.data](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv3/face_mask.data) and for YOLOv4, it will be [yolov4_face_mask.data](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv4/yolov4_face_mask.data).
 
 
 
