@@ -66,8 +66,8 @@ and after that, we need to download the weights of the pre-trained model in orde
 
 Before training our model, we need to create some files such as *obj.names, obj.data, obj.cfg, train.txt* and *test.txt*. Below is some description about what should these files should contain. 
 
-1. **obj.names**: create a file obj.names which contains the classes of the problem. In our case, the original Kaggle dataset has 3 categories: with_mask, without_mask, and mask_weared_incorrect. To simplify a little bit the task, I considered the two latter categories into one. Thus, for our task, we have two categories: mask and no_mask based on whether someone wears his/her mask appropriately. For both the models, I have used same [face_mask.names](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv3/face_mask.names) file.
-2. **obj.data**: create a obj.data file that includes relevant information to our problem and it is going to be used from the program. For YOLOv3, we have created [face_mask.data](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv3/face_mask.data) and for YOLOv4, it will be [yolov4_face_mask.data](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv4/yolov4_face_mask.data).
+1. **obj.names**: > create a file obj.names which contains the classes of the problem. In our case, the original Kaggle dataset has 3 categories: with_mask, without_mask, and mask_weared_incorrect. To simplify a little bit the task, I considered the two latter categories into one. Thus, for our task, we have two categories: mask and no_mask based on whether someone wears his/her mask appropriately. For both the models, I have used same [face_mask.names](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv3/face_mask.names) file.
+2. **obj.data**: > create a obj.data file that includes relevant information to our problem and it is going to be used from the program. For YOLOv3, we have created [face_mask.data](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv3/face_mask.data) and for YOLOv4, it will be [yolov4_face_mask.data](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv4/yolov4_face_mask.data).
 
 
 
