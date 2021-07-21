@@ -28,8 +28,15 @@ The tabel below shows an overview of python lybraries we are using for these tas
 
 At present, the published mask data sets are few, and there are problems such as poor content, poor quality and single background which cannot be directly applied to the face mask detection task in a complex environment. Under such context, this paper adopts the method of using my own photos and screening from the published [Face Mask Detection dataset from Kaggle](https://www.kaggle.com/andrewmvd/face-mask-detection?select=annotations) and I downloaded it directly to my Google Drive. The dataset consists of two folders:
 
-* **images**, which comprises 853 *.png* files
-* **annotations**, which comprises 853 corresponding *.xml* annotations. 
+* **images**, which comprises 853 *'.png'* files
+* **annotations**, which comprises 853 corresponding *'.xml'* annotations.
+
+In the whole data set, there are 853 images of which 767 images are selected as training set and remaining 86 images are selected as testing/validation set. The images we have selected for training/testing sets need to be manually split into another two folders, one for training image data and the other for testing image data. In YOLO, the labelling format for any image data should be in *'.txt'* format. So for this we need to convert our *'.xml'* files from *'annotations'* folder into *'.txt'* format.
+
+To create a .txt file we need 5 things from each *.xml* file. For each ‘<object> … </object>‘ in an *.xml* file fetch the **class** (namely the ‘<name>…</name>‘ field), and the coordinates of the **bounding box** (namely the 4 attributes in ‘<bndbox>…</bndbox>‘). The desirable format should look like as follows: 
+
+...‘<class_name> <x_center> <y_center> <width> <height>‘ 
+
 
 
 ## References
