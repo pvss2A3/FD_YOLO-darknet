@@ -98,7 +98,10 @@ If you have observed, we have checked our mAP@0.5 of our models on the obj_best.
 
 ### Testing the Model:
 
-Now we can test our models on some random images and check how the model is predicting. We have taken some random images from Pexels [3] for testing our model prediction. we would say that are quite different from the training/testing datasets from different points, and thus they are of different distribution. We chose such pictures to see how well the model generalizes.
+Now we can test our models on some random images and check how the model is predicting. We have taken some random images from Pexels [3] for testing our model prediction. we would say that are quite different from the training/testing datasets from different points, and thus they are of different distribution. We chose such pictures to see how well the model generalizes. We can check our predictions of YOLOv3 model in [YOLOv3_predictions](https://github.com/pvss2A3/FD_YOLO-darknet/tree/main/Predictions/Images/YOLOv3_predictions) folder and YOLOv4 model in [YOLOv4_predictions](https://github.com/pvss2A3/FD_YOLO-darknet/tree/main/Predictions/Images/YOLOv4_predictions) folder.
+
+Some sample predictions of both the models are shown below:
+
 
 
 ## References
@@ -111,5 +114,5 @@ https://github.com/AlexeyAB/darknet
 <a id="3">[3]</a>
 https://www.pexels.com/
 
-<a id="3">[3]</a>
+<a id="4">[4]</a>
 
