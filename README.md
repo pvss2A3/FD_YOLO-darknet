@@ -91,8 +91,8 @@ The flag `-map` will inform us about the progress of the training by printing ou
 
 After training the model is done then you can check for models mAP@0.5 by `!./darknet detector test data/obj.data cfg/obj.cfg backup/obj_best.weights` code. Our YOLOv3 and YOLOv4 models have acheived mAP@0.5 as 85.97% and 88.03% respectively.
 
-![alt text](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/Predictions/YOLOv3_mAP.png "mAP@0.5 for YOLOv3 model")
-![alt text](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/Predictions/YOLOv4_mAP.png "mAP@0.5 for YOLOv4 model")
+![alt text](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/Predictions/YOLOv3_mAP.png "mAP@0.5 for YOLOv3 model")mAP@0.5 for YOLOv3 model
+![alt text](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/Predictions/YOLOv4_mAP.png "mAP@0.5 for YOLOv4 model")mAP@0.5 for YOLOv4 model
 
 If you have observed, we have checked our mAP@0.5 of our models on the obj_best.weights and not on the obj_final.weights. This is because our model saves the best weights in the backup folder, in case we train it for more epochs than it should be something that would possibly lead to overfitting.
 
