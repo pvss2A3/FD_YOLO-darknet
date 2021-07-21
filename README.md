@@ -54,7 +54,7 @@ After converting all the *.xml* files from annotaions folder to *.txt*, we have 
 ```
 You can also check the conversion was correct or not with [bb script](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/show_bb.py). The script takes an image and its corresponding .txt annotation from a given folder and displays the image with the ground truth bounding boxes.
 
-### Training the dataset:
+### Training the model on the dataset:
 
 The next step is to train on our dataset. For this we need to clone the <ins> darknet repo </ins> [[2]] by running:
   
@@ -91,7 +91,14 @@ The flag `-map` will inform us about the progress of the training by printing ou
 
 After training the model is done then you can check for models mAP@0.5 by `!./darknet detector test data/obj.data cfg/obj.cfg backup/obj_best.weights` code. Our YOLOv3 and YOLOv4 models have acheived mAP@0.5 as 85.97% and 88.03% respectively.
 
+![alt text](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/Predictions/YOLOv3_mAP.png "mAP@0.5 for YOLOv3 model")
+![alt text](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/Predictions/YOLOv4_mAP.png "mAP@0.5 for YOLOv4 model")
 
+If you have observed, we have checked our mAP@0.5 of our models on the obj_best.weights and not on the obj_final.weights. This is because our model saves the best weights in the backup folder, in case we train it for more epochs than it should be something that would possibly lead to overfitting.
+
+### Testing the Model:
+
+Now we can test our models on some random images and check how the model is predicting. We have taken some random images from Pexels [[3]] for testing our model prediction. we would say that are quite different from the training/testing datasets from different points, and thus they are of different distribution. We chose such pictures to see how well the model generalizes.
 
 
 ## References
@@ -100,6 +107,9 @@ Dasiopoulou, S., Mezaris, V., Kompatsiaris, I., Papastathis, V., & Strintzis, M.
 
 <a id="2">[2]</a>
 https://github.com/AlexeyAB/darknet
+
+<a id="3">[3]</a>
+https://www.pexels.com/
 
 <a id="3">[3]</a>
 
