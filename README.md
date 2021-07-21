@@ -35,7 +35,7 @@ In the whole data set, there are 853 images of which 767 images are selected as 
 
 To create a .txt file we need 5 things from each *.xml* file. For each `<object> ... <\object>`in an *.xml* file fetch the **class** (namely the `<name> ... <\name>` field), and the coordinates of the **bounding box** (namely the 4 attributes in `<bndbox> ... <\bndbox>`). The desirable format should look like as follows: 
 
-<p style="text-align: center;"><class_name><x_centre><y_centre><width><height></p> 
+<p style="text-align: center;"> `<class_name><x_centre><y_centre><width><height> </p> 
 
 
 
