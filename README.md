@@ -1,4 +1,4 @@
-**Object detection** is a computer technology more related to Computer Vision and Image Processing that deals with detecting instances of semantic objects of a certain class, such as humans, buildings, or cars, in digital images and videos [[1]]. Well-researched domains of object detection include face detection, car detection and pedestrian detection.
+**Object detection** is a computer technology more related to Computer Vision and Image Processing that deals with detecting instances of semantic objects of a certain class, such as humans, buildings, or cars, in digital images and videos [1]. Well-researched domains of object detection include face detection, car detection and pedestrian detection.
 
 ![alt text](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/Images/object_detection_on_roads.jpeg "Object Detection on Roads")
 Object Detection On Roads [*ImageSource*](https://en.wikipedia.org/wiki/File:Computer_vision_sample_in_Sim%C3%B3n_Bolivar_Avenue,_Quito.jpg)
