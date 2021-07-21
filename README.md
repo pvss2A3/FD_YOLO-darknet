@@ -56,7 +56,7 @@ You can also check the conversion was correct or not with [bb script](https://gi
 
 ### Training the model on the dataset:
 
-The next step is to train on our dataset. For this we need to clone the <ins> darknet repo </ins> [[2]] by running:
+The next step is to train on our dataset. For this we need to clone the <ins> darknet repo </ins> [2] by running:
   
   `!git clone https://github.com/AlexeyAB/darknet`
 
@@ -98,7 +98,7 @@ If you have observed, we have checked our mAP@0.5 of our models on the obj_best.
 
 ### Testing the Model:
 
-Now we can test our models on some random images and check how the model is predicting. We have taken some random images from Pexels [[3]] for testing our model prediction. we would say that are quite different from the training/testing datasets from different points, and thus they are of different distribution. We chose such pictures to see how well the model generalizes.
+Now we can test our models on some random images and check how the model is predicting. We have taken some random images from Pexels [3] for testing our model prediction. we would say that are quite different from the training/testing datasets from different points, and thus they are of different distribution. We chose such pictures to see how well the model generalizes.
 
 
 ## References
