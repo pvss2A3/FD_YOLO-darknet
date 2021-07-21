@@ -26,6 +26,9 @@ The tabel below shows an overview of python lybraries we are using for these tas
 
 ### Dataset:
 
+At present, the published mask data sets are few, and there are problems such as poor content, poor quality and single background which cannot be directly applied to the face mask detection task in a complex environment. Under such context, this paper adopts the method of using my own photos and screening from the published [Face Mask Detection dataset from Kaggle](https://www.kaggle.com/andrewmvd/face-mask-detection?select=annotations) and I downloaded it directly to my Google Drive. The dataset consists of two folders:
+⋅⋅* **images**, which comprises 853 *.png* files 
+⋅⋅* **annotations**, which comprises 853 corresponding *.xml* annotations. 
 
 
 ## References
