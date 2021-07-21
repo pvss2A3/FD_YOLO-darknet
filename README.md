@@ -54,6 +54,14 @@ After converting all the *.xml* files from annotaions folder to *.txt*, we have 
 ```
 You can also check the conversion was correct or not with [bb script](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/show_bb.py). The script takes an image and its corresponding .txt annotation from a given folder and displays the image with the ground truth bounding boxes.
 
+### Training the dataset:
+
+The next step is to train on our dataset. For this we need to clone the <u>darknet repo<\u> by running:
+  
+  `!git clone https://github.com/AlexeyAB/darknet`
+
+
+
 
 
 
