@@ -35,7 +35,26 @@ In the whole data set, there are 853 images of which 767 images are selected as 
 
 To create a .txt file we need 5 things from each *.xml* file. For each `<object> ... <\object>`in an *.xml* file fetch the **class** (namely the `<name> ... <\name>` field), and the coordinates of the **bounding box** (namely the 4 attributes in `<bndbox> ... <\bndbox>`). The desirable format should look like as follows: 
 
-<p style="text-align: center;"> `<class_name><x_centre><y_centre><width><height> </p> 
+`<class_name><x_centre><y_centre><width><height>`
+
+To achieve above requirement, we need to use [yolo_xml_to_txt.py](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/yolo_xml_to_txt.py) script, which fetches the aforementioned 5 attributes for each object in each *.xml* file and creates the corresponding *.txt* files. For example, for an [image](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/Images/maksssksksss35.png) the associated .txt file is [sample txt](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/Images/maksssksksss35.txt). And this is the exact conversion of the an [.xml](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/Images/maksssksksss35.xml) file into a *.txt* file. 
+
+After converting all the *.xml* files from annotaions folder to *.txt*, we have to copy the related *.txt* annotation file in the same folder where our image data is available. So, the training image data folder should contain 767 images and corresponding 767 *.txt* annotation files and the testing image data folder should contain rest 86 images with their corresponding 86 *.txt* annotation files. To check you have how many files in those folders you can use the following code:
+
+```python
+%cd mask_yolo_train
+!ls -F | grep .png | wc -l
+!ls -F | grep .txt | wc -l
+%cd ..
+
+%cd mask_yolo_test
+!ls -F | grep .png | wc -l
+!ls -F | grep .txt | wc -l
+%cd ..
+```
+
+
+
 
 
 
