@@ -42,17 +42,17 @@ To achieve above requirement, we need to use [yolo_xml_to_txt.py](https://github
 After converting all the *.xml* files from annotaions folder to *.txt*, we have to copy the related *.txt* annotation file in the same folder where our image data is available. So, the training image data folder should contain 767 images and corresponding 767 *.txt* annotation files and the testing image data folder should contain rest 86 images with their corresponding 86 *.txt* annotation files. To check you have how many files in those folders you can use the following code:
 
 ```python
-%cd mask_yolo_train
+%cd (...your training set folder...)
 !ls -F | grep .png | wc -l
 !ls -F | grep .txt | wc -l
 %cd ..
 
-%cd mask_yolo_test
+%cd (...your test folder...)
 !ls -F | grep .png | wc -l
 !ls -F | grep .txt | wc -l
 %cd ..
 ```
-
+You can also check the conversion was correct or not with [bb script](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/show_bb.py). The script takes an image and its corresponding .txt annotation from a given folder and displays the image with the ground truth bounding boxes.
 
 
 
