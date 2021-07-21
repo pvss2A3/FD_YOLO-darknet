@@ -56,7 +56,7 @@ You can also check the conversion was correct or not with [bb script](https://gi
 
 ### Training the dataset:
 
-The next step is to train on our dataset. For this we need to clone the <ins> darknet repo </ins> by running:
+The next step is to train on our dataset. For this we need to clone the <ins> darknet repo </ins> [[2]] by running:
   
   `!git clone https://github.com/AlexeyAB/darknet`
 
@@ -74,15 +74,20 @@ Before training our model, we need to create some files such as *obj.names, obj.
  > Create file obj.cfg with the same content as in yolo_custom_version.cfg files and:
     1. change line batch to `batch=64`
     2. change line subdivisions to `subdivisions=16`
-    3. change line max_batches to (classes x 2000, but not less than number of training images and not less than 6000), f.e. max_batches=6000 if you train for 3 classes. In our case, number of classes are 2, so we will get max_batches as 2x2000=4000 but it is less than 6000, so we are using `max_batches=7000`
-    4. change line steps to 80% and 90% of max_batches, f.e. steps=4800,5400. In our case `steps=5600,6300`
+    3. change line max_batches to (classes x 2000, but not less than number of training images and not less than 4000), f.e. max_batches=6000 if you train for 3 classes. In our case, number of classes are 2, so we will get max_batches as 2x2000=4000 but we are using `max_batches=7000` for YOLOv3 and `max_batch=4000` for YOLOv4 
+    4. change line steps to 80% and 90% of max_batches, f.e. steps=4800,5400. In our case `steps=5600,6300` for YOLOv3 and `steps=3200,3600` for YOLOv4
     5. set network size `width=416 height=416` or any value multiple of 32.
     6. change line classes=80 to your number of objects (in our case `classes = 2`) in each of 3 \[yolo\]-layers
     7. change \[filters=255\] to filters=(classes + 5)x3 (in our case `filters = 21`) in the 3 \[convolutional\] before each \[yolo] layer, keep in mind that it only has to be the last \[convolutional] before each of the \[yolo] layers.
+ > The obj.cfg files for YOLOv3 and YOLOv4 are [face_mask.cfg](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv3/face_mask.cfg) and [yolov4_face_mask.cfg](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv4/yolov4_face_mask.cfg) respectively.
 4. **train.txt & text.txt**:
  > These two files have been included in the obj.data file (in our case face_mask.data & yolov4_face_mask.data) and indicate the absolute path for each image to the model. Those files will look like [train.txt](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/resources/train.txt) & [text.txt](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/resources/test.txt)
   
+After creating all the files, change the related permissions of the darknet folder by running `!chmod +x ./darknet` command and then copy *obj.data*, *obj.names*, *train.txt* & *test.txt* files in *darknet/data* folder and *obj.cfg* file in *darknet/cfg* folder. And finally, begin the training by 
 
+   `!./darknet detector train data/face_mask.data cfg/face_mask.cfg darknet53.conv.74.1 -dont_show -i 0 -map -points 0` for YOLOv3 and
+   `!./darknet detector train data/yolov4_face_mask.data cfg/yolov4_face_mask.cfg yolov4.conv.137 -dont_show -i 0 -map -points 0` for YOLOv4
+The flag `-map` will inform us about the progress of the training by printing out important metrics such as average Loss, Precision, Recall, AveragePrecision (AP), meanAveragePrecsion (mAP), etc. The training process might take many hours depending on various parameters and your hardware setup performance, and it is normal. For this project, in order to train my models up to this point, I needed about 8.05 hours for YOLOv3 and 6.73 hours for YOLOv4. Suppose in case of any reason, model stops training after 1000 iterations, then you can continue the training process from that iterations by using partially trained model. For example, we stopped our YOLOv4 model training after 1000 iterations then we can resume this training process by running `!./darknet detector train data/yolov4_face_mask.data cfg/yolov4_face_mask.cfg /content/gdrive/MyDrive/FD_dataset/backup1/yolov4_face_mask_1000.weights -dont_show -i 0 -map -points 0` command. Make sure your weights are saved in the backup folder. If the model
 
 
 
@@ -92,4 +97,7 @@ Before training our model, we need to create some files such as *obj.names, obj.
 Dasiopoulou, S., Mezaris, V., Kompatsiaris, I., Papastathis, V., & Strintzis, M. (2005). Knowledge-assisted semantic video object detection. Circuits and Systems for Video Technology, IEEE Transactions on, 15, 1210 - 1224.
 
 <a id="2">[2]</a>
+https://github.com/AlexeyAB/darknet
+
+<a id="3">[3]</a>
 
