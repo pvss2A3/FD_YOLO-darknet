@@ -91,8 +91,11 @@ The flag `-map` will inform us about the progress of the training by printing ou
 
 After training the model is done then you can check for models mAP@0.5 by `!./darknet detector test data/obj.data cfg/obj.cfg backup/obj_best.weights` code. Our YOLOv3 and YOLOv4 models have acheived mAP@0.5 as 85.97% and 88.03% respectively.
 
-![alt text](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/Predictions/YOLOv3_mAP.png "mAP@0.5 for YOLOv3 model")mAP@0.5 for YOLOv3 model
-![alt text](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/Predictions/YOLOv4_mAP.png "mAP@0.5 for YOLOv4 model")mAP@0.5 for YOLOv4 model
+mAP@0.5 for YOLOv3 model
+![alt text](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/Predictions/YOLOv3_mAP.png "mAP@0.5 for YOLOv3 model")
+
+mAP@0.5 for YOLOv4 model
+![alt text](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/Predictions/YOLOv4_mAP.png "mAP@0.5 for YOLOv4 model")
 
 If you have observed, we have checked our mAP@0.5 of our models on the obj_best.weights and not on the obj_final.weights. This is because our model saves the best weights in the backup folder, in case we train it for more epochs than it should be something that would possibly lead to overfitting.
 
@@ -101,6 +104,12 @@ If you have observed, we have checked our mAP@0.5 of our models on the obj_best.
 Now we can test our models on some random images and check how the model is predicting. We have taken some random images from Pexels [3] for testing our model prediction. we would say that are quite different from the training/testing datasets from different points, and thus they are of different distribution. We chose such pictures to see how well the model generalizes. We can check our predictions of YOLOv3 model in [YOLOv3_predictions](https://github.com/pvss2A3/FD_YOLO-darknet/tree/main/Predictions/Images/YOLOv3_predictions) folder and YOLOv4 model in [YOLOv4_predictions](https://github.com/pvss2A3/FD_YOLO-darknet/tree/main/Predictions/Images/YOLOv4_predictions) folder.
 
 Some sample predictions of both the models are shown below:
+
+YOLOv3 model prediction on images from *Pexels*
+![alt text](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/Predictions/Images/YOLOv3_predictions/yolov3_predictions.jpeg "YOLOv3 model prediction on images from Pexels")
+
+YOLOv4 model prediction on images from *Pexels*
+![alt text](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/Predictions/Images/YOLOv4_predictions/yolov4_predictions.jpeg "YOLOv4 model prediction on images from Pexels")
 
 
 
@@ -113,6 +122,4 @@ https://github.com/AlexeyAB/darknet
 
 <a id="3">[3]</a>
 https://www.pexels.com/
-
-<a id="4">[4]</a>
 
