@@ -26,12 +26,12 @@ The tabel below shows an overview of python lybraries we are using for these tas
 
 ### Dataset:
 
-At present, the published mask data sets are few, and there are problems such as poor content, poor quality and single background which cannot be directly applied to the face mask detection task in a complex environment. Under such context, this paper adopts the method of using my own photos and screening from the published [Face Mask Detection dataset from Kaggle](https://www.kaggle.com/andrewmvd/face-mask-detection?select=annotations) and I downloaded it directly to my Google Drive. The dataset consists of two folders:
+At present, the published mask data sets are few, and there are problems such as poor content, poor quality and single background which cannot be directly applied to the face mask detection task in a complex environment. Under such context, this paper adopts the method of using my own photos and screening from the published [Face Mask Detection dataset from Kaggle](https://www.kaggle.com/andrewmvd/face-mask-detection?select=annotations) and we have downloaded it directly to our Google Drive. The dataset consists of two folders:
 
 * **images**, which comprises 853 *'.png'* files
 * **annotations**, which comprises 853 corresponding *'.xml'* annotations.
 
-In the whole data set, there are 853 images of which 767 images are selected as training set and remaining 86 images are selected as testing/validation set. The images we have selected for training/testing sets need to be manually split into another two folders, one for training image data and the other for testing image data. In YOLO, the labelling format for any image data should be in *'.txt'* format. So for this we need to convert our *'.xml'* files from *'annotations'* folder into *'.txt'* format.
+In the whole data set, there are 853 images of which 767 images are selected as training set and remaining 86 images are selected as testing/validation set. The images we have selected for training/testing sets need to be manually split into another two folders, one for training image data and the other for testing image data. In YOLO, the labelling format for any image data should be in *'.txt'* format. So for this, we need to convert our *'.xml'* files from *'annotations'* folder into *'.txt'* format.
 
 To create a .txt file we need 5 things from each *.xml* file. For each `<object> ... <\object>`in an *.xml* file fetch the **class** (namely the `<name> ... <\name>` field), and the coordinates of the **bounding box** (namely the 4 attributes in `<bndbox> ... <\bndbox>`). The desirable format should look like as follows: 
 
@@ -67,9 +67,21 @@ and after that, we need to download the weights of the pre-trained model in orde
 Before training our model, we need to create some files such as *obj.names, obj.data, obj.cfg, train.txt* and *test.txt*. Below is some description about what should these files should contain. 
 
 1. **obj.names**: 
-  > create a file obj.names which contains the classes of the problem. In our case, the original Kaggle dataset has 3 categories: with_mask, without_mask, and mask_weared_incorrect. To simplify a little bit the task, I considered the two latter categories into one. Thus, for our task, we have two categories: mask and no_mask based on whether someone wears his/her mask appropriately. For both the models, I have used same [face_mask.names](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv3/face_mask.names) file.
+  > create a file obj.names which contains the classes of the problem. In our case, the original Kaggle dataset has 3 categories: *with_mask, without_mask, and mask_weared_incorrect*. To simplify a little bit the task, we considered the two latter categories into one. Thus, for our task, we have two categories: ***mask*** and ***no_mask*** based on whether someone wears his/her mask appropriately. For both the models, we have used same [face_mask.names](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv3/face_mask.names) file.
 2. **obj.data**: 
-  > create a obj.data file that includes relevant information to our problem and it is going to be used from the program. For YOLOv3, we have created [face_mask.data](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv3/face_mask.data) and for YOLOv4, it will be [yolov4_face_mask.data](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv4/yolov4_face_mask.data).
+  > create a obj.data file that includes relevant information (where classes = number of objects) to our problem and it is going to be used from the program. For YOLOv3, we have created [face_mask.data](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv3/face_mask.data) and for YOLOv4, it will be [yolov4_face_mask.data](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv4/yolov4_face_mask.data). Make sure you also have *backup* folder in the dataset folder, because in this *backup* folder the weights are going to be saved after every 1000 iterations. These will actually be your checkpoints in case of an unexpected interruption, from where you can continue the training process.
+3. **obj.cfg**:
+ > Create file obj.cfg with the same content as in yolo_custom_version.cfg files and:
+    1. change line batch to `batch=64`
+    2. change line subdivisions to `subdivisions=16`
+    3. change line max_batches to (classes x 2000, but not less than number of training images and not less than 6000), f.e. max_batches=6000 if you train for 3 classes. In our case, number of classes are 2, so we will get max_batches as 2x2000=4000 but it is less than 6000, so we are using `max_batches=7000`
+    4. change line steps to 80% and 90% of max_batches, f.e. steps=4800,5400. In our case `steps=5600,6300`
+    5. set network size `width=416 height=416` or any value multiple of 32.
+    6. change line classes=80 to your number of objects (in our case `classes = 2`) in each of 3 \[yolo\]-layers
+    7. change \[filters=255\] to filters=(classes + 5)x3 (in our case `filters = 21`) in the 3 \[convolutional\] before each \[yolo] layer, keep in mind that it only has to be the last \[convolutional] before each of the \[yolo] layers.
+4. **train.txt & text.txt**:
+ > These two files have been included in the obj.data file (in our case face_mask.data & yolov4_face_mask.data) and indicate the absolute path for each image to the model. Those files will look like [train.txt](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/resources/train.txt) & [text.txt](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/resources/test.txt)
+  
 
 
 
