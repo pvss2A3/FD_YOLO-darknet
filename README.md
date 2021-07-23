@@ -72,13 +72,13 @@ Before training our model, we need to create some files such as *obj.names, obj.
   > create a obj.data file that includes relevant information (where classes = number of objects) to our problem and it is going to be used from the program. For YOLOv3, we have created [face_mask.data](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv3/face_mask.data) and for YOLOv4, it will be [yolov4_face_mask.data](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv4/yolov4_face_mask.data). Make sure you also have *backup* folder in the dataset folder, because in this *backup* folder the weights are going to be saved after every 1000 iterations. These will actually be your checkpoints in case of an unexpected interruption, from where you can continue the training process.
 3. **obj.cfg**:
  > Create file obj.cfg with the same content as in yolo_custom_version.cfg files and:
-      1. change line batch to `batch=64`
-      2. change line subdivisions to `subdivisions=16`
-      3. change line max_batches to (classes x 2000, but not less than number of training images and not less than 4000), f.e. max_batches=6000 if you train for 3 classes. In our case, number of classes are 2, so we will get max_batches as 2x2000=4000 but we are using `max_batches=7000` for YOLOv3 and `max_batch=4000` for YOLOv4 
-      4. change line steps to 80% and 90% of max_batches, f.e. steps=4800,5400. In our case `steps=5600,6300` for YOLOv3 and `steps=3200,3600` for YOLOv4
-      5. set network size `width=416 height=416` or any value multiple of 32.
-      6. change line classes=80 to your number of objects (in our case `classes = 2`) in each of 3 \[yolo\]-layers
-      7. change \[filters=255\] to filters=(classes + 5)x3 (in our case `filters = 21`) in the 3 \[convolutional\] before each \[yolo] layer, keep in mind that it only has to be the last \[convolutional] before each of the \[yolo] layers.
+ > 1. change line batch to `batch=64`
+ > 2. change line subdivisions to `subdivisions=16`
+ > 3. change line max_batches to (classes x 2000, but not less than number of training images and not less than 4000), f.e. max_batches=6000 if you train for 3 classes. In our case, number of classes are 2, so we will get max_batches as 2x2000=4000 but we are using `max_batches=7000` for YOLOv3 and `max_batch=4000` for YOLOv4 
+ > 4. change line steps to 80% and 90% of max_batches, f.e. steps=4800,5400. In our case `steps=5600,6300` for YOLOv3 and `steps=3200,3600` for YOLOv4
+ > 5. set network size `width=416 height=416` or any value multiple of 32.
+ > 6. change line classes=80 to your number of objects (in our case `classes = 2`) in each of 3 \[yolo\]-layers
+ > 7. change \[filters=255\] to filters=(classes + 5)x3 (in our case `filters = 21`) in the 3 \[convolutional\] before each \[yolo] layer, keep in mind that it only has to be the last \[convolutional] before each of the \[yolo] layers.
  > The obj.cfg files for YOLOv3 and YOLOv4 are [face_mask.cfg](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv3/face_mask.cfg) and [yolov4_face_mask.cfg](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/YOLOv4/yolov4_face_mask.cfg) respectively.
 4. **train.txt & text.txt**:
  > These two files have been included in the obj.data file (in our case face_mask.data & yolov4_face_mask.data) and indicate the absolute path for each image to the model. Those files will look like [train.txt](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/resources/train.txt) & [text.txt](https://github.com/pvss2A3/FD_YOLO-darknet/blob/main/resources/test.txt)
